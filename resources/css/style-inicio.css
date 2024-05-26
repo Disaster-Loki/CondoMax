@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --violet: #8A2BE2;
+    --white: #FFFFFF;
+    --whitesmoke: #F5F5F5;
+    --cinza: #A9A9A9;
+    --black_t: #262525;
+}
+
+body {
+    height: 100%;
+    font-family: "Roboto Serif", serif;
+    background-color: var(--whitesmoke);
+}
+
+.navbar {
+    background-color: var(--black_t);
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.side_left {
+    display: flex;
+    align-items: center;
+}
+
+.side_left .logo {
+    font-size: 2rem;
+    color: var(--white);
+    margin-right: 10px;
+}
+
+.side_left .name_system h2 {
+    color: var(--white);
+    font-size: 1.5rem;
+}
+
+.side_right .links {
+    list-style: none;
+    display: flex;
+}
+
+.side_right .links .list {
+    margin-left: 60px;
+    position: relative;
+}
+
+.side_right .links .list a {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 500;
+    padding: 5px 0;
+    padding-bottom: 20px; 
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.side_right .links .list a:hover,
+.side_right .links .list.active a {
+    color: var(--violet);
+}
+
+.side_right .links .list a::after {
+    content: "";
+    display: block;
+    width: 0%;
+    height: 4px;
+    background: var(--violet);
+    transition: width 0.4s ease-in-out;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+}
+
+.side_right .links .list a:hover::after,
+.side_right .links .list.active a::after {
+    width: 100%;
+}
+
+/* Main*/
+main .container2 {
+    position: relative;
+    width: 100%;
+}
+
+.text {
+    position: absolute;
+    top: 40%;
+    left: 10%; 
+    transform: translateY(-50%);
+    z-index: 1;
+    color: var(--white);
+    font-size: 30px;
+    font-weight: 300;
+    text-align: left;
+}
+
+.button-login {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.button-login button {
+    background-color: var(--violet);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Slideshow */
+.mySlides {
+    display: none;
+    width: 100%;
+    height: 40vh;
+}
+
+.fade {
+    animation: fade 2s ease-in-out infinite;
+}
