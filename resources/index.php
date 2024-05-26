@@ -49,7 +49,7 @@
                 <img src="./images/3.jpg">
             </div>
             <div class="text">
-                <span>Construindo uma </br> comunidade unida através <br>de uma gestão eficaz.</span>
+                <span>Construindo uma <br> comunidade unida através <br> de uma gestão eficaz.</span>
             </div>
             <div class="button-login">
                 <button type="button">LOGIN</button>
