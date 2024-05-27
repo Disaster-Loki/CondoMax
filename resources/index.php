@@ -39,23 +39,37 @@
     <!-- Main -->
     <main class="container2">
         <div class="slideshow-container">
-            <div class="mySlides fade">
-                <img src="./images/1.webp">
+            <div class="mySlides">
+                <img src="./images/1.webp" alt="Slide 1">
             </div>
-            <div class="mySlides fade">
-                <img src="./images/2.jpg">
+            <div class="mySlides">
+                <img src="./images/2.jpg" alt="Slide 2">
             </div>
-            <div class="mySlides fade">
-                <img src="./images/3.jpg">
+            <div class="mySlides">
+                <img src="./images/3.jpg" alt="Slide 3">
             </div>
             <div class="text">
-                <span>Construindo uma <br> comunidade unida através <br> de uma gestão eficaz.</span>
+                <span>Construindo uma <br> comunidade unida através <br>de uma gestão eficaz.</span>
             </div>
             <div class="button-login">
                 <button type="button">LOGIN</button>
             </div>
         </div>
     </main>
+    <section class="container3">
+        <div class="option">
+            <div class="about">Sobre Nós</div>
+            <div class="management">Gestão de Condomínios</div>
+            <div class="contact">Contactos</div>
+        </div>
+        <div class="content">
+            <h1 class="options">GESTÃO DE CONDOMÍNIOS</h1>
+            <p>
+            Administrar um condomínio hoje em dia é quase o equivalente a gerir uma empresa. São empreendimentos que necessitam atenção cautelosa e dedicação por parte de profissionais competentes, que felizmente temos disponíveis para si.
+            Atuamos na administração de condomínios com atendimento personalizado, voltados para condomínios horizontais ou verticais.
+            </p>
+        </div>
+    </section>
     <script src="./js/iterator.js"></script>
 </body>
 </html>
