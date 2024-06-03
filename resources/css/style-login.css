@@ -7,6 +7,16 @@
 	font-family: Raleway, sans-serif;
 }
 
+:root {
+    --violet: #8A2BE2;
+    --white: #FFFFFF;
+    --whitesmoke: #f3f3f3;
+    --cinza: #A9A9A9;
+    --black: #000010;
+    --black_t: #262525;
+    --purple: #C1A6FA;
+}
+
 body {
 	background: linear-gradient(90deg, #C7C5F4, #776BCC);		
 }
