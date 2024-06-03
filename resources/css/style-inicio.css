@@ -11,16 +11,16 @@
     --white: #FFFFFF;
     --whitesmoke: #f3f3f3;
     --cinza: #A9A9A9;
+    --black: #000010;
     --black_t: #262525;
     --purple: #C1A6FA;
 }
 
 body {
     height: 100%;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     font-family: "Roboto Serif", serif;
-    background-color: #333333; 
 }
 
 .navbar {
@@ -140,8 +140,8 @@ main .container2 .slideshow-container {
 
 .button-login {
     position: absolute;
-    bottom: 90px;
-    right: 200px;
+    bottom: 10rem;
+    right: 10rem;
 }
 
 .button-login button {
@@ -151,33 +151,30 @@ main .container2 .slideshow-container {
     padding: 13px 35px;
     font-size: 16px;
     cursor: pointer;
-    border-radius: 35px;
     transition: 1s;
 }
 
-.button-login button:hover{
+.button-login button:hover {
     background-color: var(--white);
     color: var(--violet);
-    padding: 17px 45px;
 }
 
 /* Container3 */
 .container3 {
-    background-color: var(--whitesmoke);
+    background-color: var(--white);
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     padding: 40px;
     width: 100%;
 }
 
-.option{
+.option {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 50vw;
-    margin-right: 9%;
+    width: 25%;
 }
 
 .option .about,
@@ -185,12 +182,17 @@ main .container2 .slideshow-container {
 .option .contact {
     background-color: var(--purple);
     color: var(--white);
-    width: 100%;
-    padding: 15px;
-    font-size: 18px;
+    padding: 10px 0;
+    font-size: 16px;
     text-align: right;
     cursor: pointer;
     position: relative;
+}
+
+.option .about .info,
+.option .management .info,
+.option .contact .info {
+    padding-right: 14%;
 }
 
 .option .about::after,
@@ -200,13 +202,9 @@ main .container2 .slideshow-container {
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 80%;
+    left: 90%;
     width: 10px;
     background-color: var(--white);
-}
-
-.option .about::after {
-    background-color: transparent;
 }
 
 .option .about:hover,
@@ -222,25 +220,60 @@ main .container2 .slideshow-container {
     background-color: var(--purple);
 }
 
-.option .about:hover::before,
-.option .management:hover::before,
-.option .contact:hover::before {
-    background-color: var(--white);
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-left: 5%;
+    flex-grow: 1;
 }
 
-.option .about::before,
-.option .management::before,
-.option .contact::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 10%;
-    height: 100%;
-    background-color: var(--purple);
+.content h1.options {
+    font-size: 24px;
+    color: var(--black_t);
+    margin-bottom: 20px;
 }
 
-.option p {
+.content .info {
+    width: 88%;
     text-align: justify;
     line-height: 1.5;
 }
+
+.content .imgs {
+    display: flex;
+    width: 88%;
+    height: 10%;
+    margin-top: 20px;
+}
+
+.content .imgs img {
+    width: 320px;
+    height: 50%;
+    margin-left: 8%;
+    object-fit: cover;
+}
+
+.footer {
+    background-color: var(--black);
+    color: var(--white);
+    padding: 13px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer .container {
+    display: flex;
+    width: 100%;
+    font-size: 12px;
+}
+
+.footer .copyright {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.footer .politic {
+    text-align: right;
+}
+
