@@ -277,3 +277,53 @@ main .container2 .slideshow-container {
     text-align: right;
 }
 
+
+/* Phone */
+.menu-icon {
+    display: none;
+}
+
+.menu {
+    display: none;
+}
+.menu-item {
+    padding: 10px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+    .side_right {
+        display: flex;
+        align-items: center;
+    }
+
+    .links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--black_t);
+        width: 100%;
+        z-index: 999;
+    }
+
+    .links.active {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: block;
+        cursor: pointer;
+    }
+
+    .menu-icon i {
+        font-size: 1.5rem;
+    }
+}

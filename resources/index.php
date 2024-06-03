@@ -33,6 +33,9 @@
                         <a href="">Notícias</a>
                     </li>
                 </ul>
+                <div class="menu-icon">
+                    <i class='bx bx-menu'></i>
+                </div>
             </div>
         </div>
     </nav>
