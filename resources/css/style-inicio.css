@@ -260,6 +260,9 @@ main .container2 .slideshow-container {
     padding: 13px;
     display: flex;
     justify-content: space-between;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer .container {

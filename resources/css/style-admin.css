@@ -10,6 +10,8 @@
     --violet: #8A2BE2;
     --violet2: #a03bff;
     --blue: #1E90FF;
+    --orange: #ff961e;
+    --blue_t: #0017c6;
     --white: #FFFFFF;
     --whitesmoke: #f3f3f3;
     --cinza: #A9A9A9;
@@ -31,7 +33,7 @@ body {
 .sidebar {
     width: 250px;
     height: 100%;
-    background: var(--violet2);
+    background: var(--black_t);
     padding-top: 20px;
 }
 
@@ -52,12 +54,32 @@ body {
 .sidebar ul li a {
     color: var(--white);
     text-decoration: none;
-    display: block;
+    display: flex;
+    align-items: center;
     padding: 10px 20px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.sidebar ul li a i {
+    margin-right: 10px;
+    font-size: 1.2rem;
 }
 
 .sidebar ul li.selected a {
     background: var(--white);
+    color: var(--violet);
+}
+
+.sidebar ul li.selected a i {
+    color: var(--violet);
+}
+
+.sidebar ul li a:hover {
+    background: var(--white);
+    color: var(--violet);
+}
+
+.sidebar ul li a:hover i {
     color: var(--violet);
 }
 
@@ -77,7 +99,6 @@ body {
 }
 
 .card {
-    background: linear-gradient(to right, var(--violet), var(--blue));
     color: var(--white);
     padding: 20px;
     border-radius: 10px;
@@ -87,8 +108,20 @@ body {
     align-items: center;
 }
 
+.card:nth-child(1) {
+    background: linear-gradient(to right, var(--violet), var(--blue));
+}
+
+.card:nth-child(2) {
+    background: linear-gradient(to right, var(--violet), var(--orange));
+}
+
+.card:nth-child(3) {
+    background: linear-gradient(to right, var(--violet), var(--blue_t));
+}
+
 .card i {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-right: 20px;
 }
 

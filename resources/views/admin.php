@@ -3,22 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Controle - Dashboard</title>
+    <title>Admin</title>
     <link rel="stylesheet" href="../css/style-admin.css">
-     <!-- Boxicons -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> <!-- Link para Boxicons -->
 </head>
 <body>
     <div class="sidebar">
         <h2>Admin</h2>
         <ul>
-            <li class="selected"><a href="#">Dashboard</a></li>
-            <li><a href="#">Condóminos</a></li>
-            <li><a href="#">Funcionários</a></li>
-            <li><a href="#">Empresas de Serviços</a></li>
-            <li><a href="#">Balancetes</a></li>
-            <li><a href="#">Relatórios</a></li>
-            <li><a href="#">Orçamento</a></li>
+            <li class="selected"><a href="#"><i class='bx bx-home'></i>Dashboard</a></li>
+            <li><a href="#"><i class='bx bx-user'></i>Condóminos</a></li>
+            <li><a href="#"><i class='bx bx-group'></i>Funcionários</a></li>
+            <li><a href="#"><i class='bx bx-buildings'></i>Empresas de Serviços</a></li>
+            <li><a href="#"><i class='bx bx-file'></i>Balancetes</a></li>
+            <li><a href="#"><i class='bx bx-bar-chart-alt-2'></i>Relatórios</a></li>
+            <li><a href="#"><i class='bx bx-money'></i>Orçamento</a></li>
         </ul>
     </div>
 
