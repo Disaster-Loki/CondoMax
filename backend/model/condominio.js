@@ -1,23 +1,23 @@
-const db = require('../config/database');
+const pool = require('../config/database');
 
-const Condominio = {};
-
-Condominio.create = async (nome, endereco) => {
-    try {
-        const [result] = await db.execute('INSERT INTO condominio (nome, endereco) VALUES (?, ?)', [nome, endereco]);
-        return result.insertId;
-    } catch (error) {
-        throw new Error(error);
-    }
-};
-
-Condominio.findById = async (id) => {
-    try {
-        const [rows] = await db.execute('SELECT * FROM condominio WHERE id = ?', [id]);
-        return rows[0];
-    } catch (error) {
-        throw new Error(error);
-    }
+const Condominio = {
+    getAll: async () => {
+        try {
+            const [rows, fields] = await pool.query('SELECT * FROM condominio');
+            return rows;
+        } catch (error) {
+            throw error;
+        }
+    },
+    getById: async (id) => {
+        try {
+            const [rows, fields] = await pool.query('SELECT * FROM condominio WHERE id = ?', [id]);
+            return rows[0];
+        } catch (error) {
+            throw error;
+        }
+    },
+    // Adicione métodos para inserir, atualizar e excluir conforme necessário
 };
 
 module.exports = Condominio;
