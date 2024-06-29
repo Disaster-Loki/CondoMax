@@ -1,6 +1,6 @@
 <?php
-require_once './config/conexao.php';
-require_once './model/funcionario.php';
+require_once './backend/config/conexao.php';
+require_once './backend/model/funcionario.php';
 
 $funcionario = new Funcionario($conn);
 header('Content-Type: application/json');
@@ -12,7 +12,7 @@ switch ($method) {
         if ($endpoint === '/funcionario') {
             $r = $funcionario->getFuncionario();
             echo json_encode($r);
-        } else if (preg_match('/^\/funcionario\/(\d+)$/', $endpoint, $matches)) {
+        } else if (isset($endpoint) && preg_match('/^\/funcionario\/(\d+)$/', $endpoint, $matches)) {
             $id = $matches[1];
             $r = $funcionario->getFuncById($id);
             echo json_encode($r);
@@ -26,14 +26,14 @@ switch ($method) {
         }
         break;
     case 'DELETE':
-        if (preg_match('/^\/funcionario\/(\d+)$/', $endpoint, $matches)) {
+        if (isset($endpoint) && preg_match('/^\/funcionario\/(\d+)$/', $endpoint, $matches)) {
             $id = $matches[1];
             $r = $funcionario->deleteFunc($id);
             echo json_encode(['message' => 'Funcionário removido']);
         }
         break;
     case 'PUT':
-        if (preg_match('/^\/funcionario\/(\d+)$/', $endpoint, $matches)) {
+        if (isset($endpoint) && preg_match('/^\/funcionario\/(\d+)$/', $endpoint, $matches)) {
             $id = $matches[1];
             $data = json_decode(file_get_contents('php://input'), true);
             $r = $funcionario->updateFunc($id, $data);

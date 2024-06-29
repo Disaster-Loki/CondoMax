@@ -17,7 +17,6 @@ class Funcionario
 
     public function addFunc($json)
     {
-        //$json = file_get_contents('php://input');
         $jsonData = json_decode($json, true);
         $nome = $jsonData['nome'];
         $email = $jsonData['email'];
@@ -27,12 +26,11 @@ class Funcionario
         $telefone = $jsonData['telefone'];
         $morada = $jsonData['morada'];
 
-        // Preparar e executar a consulta SQL para inserir os dados no banco de dados
         $query = "INSERT INTO funcionario (nome, email, senha, cargo, salario, telefone, morada) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->conexao->prepare($query);
         $stmt->execute([$nome, $email, $senha, $cargo, $salario, $telefone, $morada]);
 
-        echo json_encode(['inserido com sucesso']);
+        return ['message' => 'Funcionário inserido com sucesso'];
     }
 
     public function getFuncById($id)
@@ -53,13 +51,14 @@ class Funcionario
 
     public function updateFunc($id, $user)
     {
-        // Preparar e executar a consulta SQL para atualizar os dados
         $query = "UPDATE funcionario SET nome = ?, email = ?, senha = ?, cargo = ?, salario = ?, telefone = ?, morada = ? WHERE id = ?";
         $stmt = $this->conexao->prepare($query);
         $stmt->execute([$user["nome"], $user["email"],
                         $user["senha"], $user["cargo"],
                         $user["salario"], $user["telefone"],
                         $user["morada"], $id]);
+
+        return ['message' => 'Funcionário atualizado com sucesso'];
     }
 }
 ?>
