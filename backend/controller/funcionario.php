@@ -9,10 +9,10 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($method) {
     case 'GET':
-        if ($endpoint === '/funcionario') {
+        if ($endpoint === '/CondoMax/funcionario') {
             $r = $funcionario->getFuncionario();
             echo json_encode($r);
-        } else if (preg_match('/^\/funcionario\/(\d+)$/', $endpoint, $matches)) {
+        } else if (preg_match('/^\/CondoMax\/funcionario\/(\d+)$/', $endpoint, $matches)) {
             $id = $matches[1];
             $r = $funcionario->getFuncById($id);
             echo json_encode($r);
