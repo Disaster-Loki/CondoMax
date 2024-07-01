@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --violet: #8A2BE2;
+    --violet2: #a03bff;
+    --blue: #1E90FF;
+    --orange: #ff961e;
+    --blue_t: #0017c6;
+    --white: #FFFFFF;
+    --whitesmoke: #f3f3f3;
+    --cinza: #A9A9A9;
+    --black: #000010;
+    --black_t: #262525;
+    --purple: #C1A6FA;
+}
+
+body, html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: "Roboto Serif", serif;
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100%;
+    background: var(--black_t);
+    padding-top: 20px;
+}
+
+.sidebar h2 {
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    color: var(--white);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.sidebar ul li a i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.sidebar ul li.selected a {
+    background: var(--white);
+    color: var(--violet);
+}
+
+.sidebar ul li.selected a i {
+    color: var(--violet);
+}
+
+.sidebar ul li a:hover {
+    background: var(--white);
+    color: var(--violet);
+}
+
+.sidebar ul li a:hover i {
+    color: var(--violet);
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+.content h2 {
+    margin-bottom: 20px;
+    color: var(--black);
+}
+
+.statistics {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    color: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+.card:nth-child(1) {
+    background: linear-gradient(to right, var(--violet), var(--blue));
+}
+
+.card:nth-child(2) {
+    background: linear-gradient(to right, var(--violet), var(--orange));
+}
+
+.card:nth-child(3) {
+    background: linear-gradient(to right, var(--violet), var(--blue_t));
+}
+
+.card i {
+    font-size: 3rem;
+    margin-right: 20px;
+}
+
+.card .info {
+    flex-grow: 1;
+}
+
+.card .number {
+    font-size: 2rem;
+    margin: 0;
+    font-weight: bold;
+}
+
+.card p {
+    margin: 5px 0 0 0;
+    font-size: 1rem;
+    color: var(--white);
+}
