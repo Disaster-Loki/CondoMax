@@ -30,7 +30,7 @@ class Funcionario
         $stmt = $this->conexao->prepare($query);
         $stmt->execute([$nome, $email, $senha, $cargo, $salario, $telefone, $morada]);
 
-        return ['message' => 'Funcionário inserido com sucesso'];
+        return ['status' => 'success'];
     }
 
     public function getFuncById($id)
@@ -58,7 +58,7 @@ class Funcionario
                         $user["salario"], $user["telefone"],
                         $user["morada"], $id]);
 
-        return ['message' => 'Funcionário atualizado com sucesso'];
+        return ['status' => 'success'];
     }
 }
 ?>

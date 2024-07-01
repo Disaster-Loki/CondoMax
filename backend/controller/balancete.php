@@ -1,48 +1,45 @@
 <?php
 require_once './backend/config/conexao.php';
-require_once './backend/model/funcionario.php';
+require_once './backend/model/balancete.php';
 
-$funcionario = new Funcionario($conn);
+$balancete = new Balancete($conn);
 header('Content-Type: application/json');
 $endpoint = $_SERVER['REQUEST_URI'];
 $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($method) {
     case 'GET':
-        if ($endpoint === '/CondoMax/funcionario') {
-            $r = $funcionario->getFuncionario();
+        if ($endpoint === '/CondoMax/balancete') {
+            $r = $balancete->getBalancetes();
             echo json_encode($r);
-        } else if (preg_match('/^\/CondoMax\/funcionario\/(\d+)$/', $endpoint, $matches)) {
+        } else if (preg_match('/^\/CondoMax\/balancete\/(\d+)$/', $endpoint, $matches)) {
             $id = $matches[1];
-            $r = $funcionario->getFuncById($id);
+            $r = $balancete->getBalanceteById($id);
             echo json_encode($r);
         }
         break;
     case 'POST':
-        if ($endpoint === '/CondoMax/funcionario') {
+        if ($endpoint === '/CondoMax/balancete') {
             $data = file_get_contents('php://input');
-            var_dump($data);
-            $r = $funcionario->addFunc($data);
+            $r = $balancete->addBalancete($data);
             echo json_encode($r);
-            }
-        break;        
+        }
+        break;
     case 'DELETE':
-        if (preg_match('/^\/CondoMax\/funcionario\/(\d+)$/', $endpoint, $matches)) {
+        if (preg_match('/^\/CondoMax\/balancete\/(\d+)$/', $endpoint, $matches)) {
             $id = $matches[1];
-            $r = $funcionario->deleteFunc($id);
+            $r = $balancete->deleteBalancete($id);
         }
         break;
     case 'PUT':
-        if (preg_match('/^\/CondoMax\/funcionario\/(\d+)$/', $endpoint, $matches)) {
+        if (preg_match('/^\/CondoMax\/balancete\/(\d+)$/', $endpoint, $matches)) {
             $id = $matches[1];
             $data = json_decode(file_get_contents('php://input'), true);
-            $r = $funcionario->updateFunc($id, $data);
+            $r = $balancete->updateBalancete($id, $data);
         }
         break;
     default:
         http_response_code(405);
         echo json_encode(['message' => 'Método não permitido']);
 }
-
-
 ?>
