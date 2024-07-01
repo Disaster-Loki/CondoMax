@@ -10,8 +10,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const formCondominio = document.getElementById('formCondominio');
     const listaCondominios = document.getElementById('listaCondominios');
 
+    console.log('Document loaded');
+
     // Função para mostrar conteúdo da seção selecionada
     function showContent(contentId) {
+        console.log('Showing content:', contentId);
         contentSections.forEach(section => {
             if (section.id === contentId) {
                 section.classList.remove('hidden');
@@ -25,124 +28,66 @@ document.addEventListener('DOMContentLoaded', function() {
     sidebarItems.forEach(item => {
         item.addEventListener('click', function() {
             const contentToShow = this.getAttribute('data-content');
+            console.log('Sidebar item clicked:', contentToShow);
             showContent(contentToShow);
-
-            sidebarItems.forEach(item => {
-                item.classList.remove('selected');
-            });
-
+            sidebarItems.forEach(i => i.classList.remove('selected'));
             this.classList.add('selected');
         });
     });
 
-    // Exibe modal ao clicar em "Adicionar Condomínio"
+    // Mostrar modal para adicionar condomínio
     addCondominioBtn.addEventListener('click', function() {
+        console.log('Add Condomínio button clicked');
         modal.style.display = 'block';
-        document.getElementById('submitCondominio').textContent = 'Adicionar Condomínio';
     });
 
-    // Fecha modal ao clicar no botão fechar
+    // Fechar modal
     closeBtn.addEventListener('click', function() {
         modal.style.display = 'none';
-        formCondominio.reset();
     });
 
-    // Fecha modal ao clicar fora dele
-    window.addEventListener('click', function(event) {
-        if (event.target === modal) {
-            modal.style.display = 'none';
-            formCondominio.reset();
-        }
-    });
-
-    // Adiciona ou edita condomínio ao submeter o formulário
+    // Submeter formulário de condomínio
     formCondominio.addEventListener('submit', function(event) {
         event.preventDefault();
+        console.log('Form submitted');
+        const nome = document.getElementById('nome').value;
+        const endereco = document.getElementById('endereco').value;
+        const gerente_responsavel = document.getElementById('gerente_responsavel').value;
 
-        const formData = new FormData(formCondominio);
-        const condominioData = {
-            nome: formData.get('nome'),
-            endereco: formData.get('endereco'),
-            gerente_responsavel: formData.get('gerente_responsavel')
-        };
+        // Adicionar novo condomínio à lista
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td>${nome}</td>
+            <td>${endereco}</td>
+            <td>${gerente_responsavel}</td>
+            <td>
+                <button class="editBtn">Editar</button>
+                <button class="deleteBtn">Excluir</button>
+            </td>
+        `;
+        listaCondominios.appendChild(newRow);
 
-        let url = 'http://localhost/CondoMax/condominio';
-        let method = 'POST';
-
-        if (submitBtn.textContent === 'Salvar Alterações') {
-            url += `/${formCondominio.dataset.condominioId}`;
-            method = 'PUT';
-        }
-
-        fetch(url, {
-            method: method,
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(condominioData)
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (method === 'POST') {
-                alert('Condomínio adicionado com sucesso!');
-            } else {
-                alert('Condomínio atualizado com sucesso!');
-            }
-            modal.style.display = 'none';
-            formCondominio.reset();
-            location.reload(); // Recarrega a página após adicionar ou atualizar
-        })
-        .catch(error => console.error('Erro ao adicionar ou atualizar condomínio:', error));
+        // Fechar modal
+        modal.style.display = 'none';
     });
 
-    // Carrega os condomínios ao carregar a página
-    fetch('http://localhost/CondoMax/condominio')
-    .then(response => response.json())
-    .then(data => {
-        data.forEach(condominio => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
-                <td>${condominio.id}</td>
-                <td>${condominio.nome}</td>
-                <td>${condominio.endereco}</td>
-                <td>${condominio.gerente_responsavel}</td>
-                <td>
-                    <button onclick="editCondominio(${condominio.id})">Editar</button>
-                    <button onclick="deleteCondominio(${condominio.id})">Excluir</button>
-                </td>
-            `;
-            listaCondominios.appendChild(tr);
-        });
-    })
-    .catch(error => console.error('Erro ao carregar condomínios:', error));
+    // Exemplo de dados dinâmicos para a tabela de logs
+    const logTableBody = document.getElementById('logTableBody');
+    const exampleLogs = [
+        { date: '2024-07-01 12:00', action: 'Login' },
+        { date: '2024-07-01 12:05', action: 'Adicionou funcionário' },
+        { date: '2024-07-01 12:10', action: 'Editou condomínio' }
+    ];
+
+    exampleLogs.forEach(log => {
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td>${log.date}</td>
+            <td>${log.action}</td>
+        `;
+        logTableBody.appendChild(newRow);
+    });
+
+    // Inicializa com a seção "Condóminos" visível
+    showContent('condominio');
 });
-
-// Função para editar condomínio
-function editCondominio(condominioId) {
-    fetch(`http://localhost/CondoMax/condominio/${condominioId}`)
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById('nome').value = data.nome;
-        document.getElementById('endereco').value = data.endereco;
-        document.getElementById('gerente_responsavel').value = data.gerente_responsavel;
-        document.getElementById('submitCondominio').textContent = 'Salvar Alterações';
-        formCondominio.dataset.condominioId = condominioId;
-        modal.style.display = 'block';
-    })
-    .catch(error => console.error('Erro ao obter dados do condomínio para edição:', error));
-}
-
-// Função para excluir condomínio
-function deleteCondominio(condominioId) {
-    if (confirm('Tem certeza que deseja excluir este condomínio?')) {
-        fetch(`http://localhost/CondoMax/condominio/${condominioId}`, {
-            method: 'DELETE'
-        })
-        .then(response => response.json())
-        .then(data => {
-            alert('Condomínio excluído com sucesso!');
-            location.reload(); // Recarrega a página após excluir
-        })
-        .catch(error => console.error('Erro ao excluir condomínio:', error));
-    }
-}
