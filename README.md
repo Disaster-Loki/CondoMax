@@ -35,7 +35,7 @@ CondoMax is a comprehensive condominium management system designed to facilitate
 
 2. **Database Setup:**
     - Create a database named `condomax`.
-    - Import the SQL file located at `database/condomax.sql` into your database.
+    - Import the SQL file located at `CondoMax/condomax_backup.sql` into your database.
   
 3. **Configure Database Connection:**
     - Update the database configuration in `config/database.php` with your database credentials.
