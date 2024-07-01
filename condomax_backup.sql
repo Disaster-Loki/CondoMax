@@ -58,8 +58,9 @@ CREATE TABLE `condominio` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(255) NOT NULL,
   `endereco` varchar(255) NOT NULL,
+  `gerente_responsavel` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,8 +70,9 @@ CREATE TABLE `condominio` (
 LOCK TABLES `condominio` WRITE;
 /*!40000 ALTER TABLE `condominio` DISABLE KEYS */;
 INSERT INTO `condominio` VALUES
-(1,'Condominio A','Rua Principal, 123'),
-(2,'Condominio B','Avenida Secundaria, 456');
+(1,'Condominio A','Rua Principal, 123','João da Silva'),
+(2,'Condominio B','Avenida Secundaria, 456','Maria Santos'),
+(3,'Condomínio Bela Vista','Rua das Flores, 123','Pedro Oliveira');
 /*!40000 ALTER TABLE `condominio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -150,7 +152,7 @@ CREATE TABLE `funcionario` (
   `morada` varchar(255) NOT NULL,
   `senha` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -161,7 +163,10 @@ LOCK TABLES `funcionario` WRITE;
 /*!40000 ALTER TABLE `funcionario` DISABLE KEYS */;
 INSERT INTO `funcionario` VALUES
 (1,'João Silva','Administrador',3500.00,'joao.silva@example.com','(11) 98765-4321','Rua das Flores, 123','senha123'),
-(2,'Maria Santos','Porteira',2000.00,'maria.santos@example.com','(11) 98765-6789','Avenida Principal, 456','senha456');
+(2,'Maria Santos','Porteira',2000.00,'maria.santos@example.com','(11) 98765-6789','Avenida Principal, 456','senha456'),
+(3,'Joelson Pascoal','Gerente',3500.00,'joelsonPascoal@example.com','(11) 98765-4321','Rua das Flores, 987','senha1235'),
+(4,'Saveti','Gerente',3500.00,'joelsonPascoal@example.com','(11) 98765-4321','Rua das Flores, 987','senha1235'),
+(5,'Rafael Marcos','Gerente',3500.00,'joelsonPascoal@example.com','(11) 98765-4321','Rua das Flores, 987','senha1235');
 /*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -204,4 +209,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-29 12:35:26
+-- Dump completed on 2024-07-01 10:41:34

@@ -20,10 +20,11 @@ class Condominio
         $jsonData = json_decode($json, true);
         $nome = $jsonData['nome'];
         $endereco = $jsonData['endereco'];
+        $gerente_responsavel = $jsonData['gerente_responsavel']; // Adicionando o campo gerente_responsavel
 
-        $query = "INSERT INTO condominio (nome, endereco) VALUES (?, ?)";
+        $query = "INSERT INTO condominio (nome, endereco, gerente_responsavel) VALUES (?, ?, ?)";
         $stmt = $this->conexao->prepare($query);
-        $stmt->execute([$nome, $endereco]);
+        $stmt->execute([$nome, $endereco, $gerente_responsavel]);
 
         return ['status' => 'success'];
     }
@@ -46,9 +47,9 @@ class Condominio
 
     public function updateCondominio($id, $data)
     {
-        $query = "UPDATE condominio SET nome = ?, endereco = ? WHERE id = ?";
+        $query = "UPDATE condominio SET nome = ?, endereco = ?, gerente_responsavel = ? WHERE id = ?";
         $stmt = $this->conexao->prepare($query);
-        $stmt->execute([$data["nome"], $data["endereco"], $id]);
+        $stmt->execute([$data["nome"], $data["endereco"], $data["gerente_responsavel"], $id]);
 
         return ['status' => 'success'];
     }

@@ -1,23 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 :root {
     --violet: #8A2BE2;
-    --violet2: #a03bff;
     --blue: #1E90FF;
     --orange: #ff961e;
     --blue_t: #0017c6;
     --white: #FFFFFF;
-    --whitesmoke: #f3f3f3;
-    --cinza: #A9A9A9;
-    --black: #000010;
     --black_t: #262525;
-    --purple: #C1A6FA;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body, html {
@@ -35,6 +30,7 @@ body {
     height: 100%;
     background: var(--black_t);
     padding-top: 20px;
+    position: fixed;
 }
 
 .sidebar h2 {
@@ -45,6 +41,8 @@ body {
 
 .sidebar ul {
     list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 .sidebar ul li {
@@ -65,26 +63,22 @@ body {
     font-size: 1.2rem;
 }
 
-.sidebar ul li.selected a {
-    background: var(--white);
-    color: var(--violet);
-}
-
-.sidebar ul li.selected a i {
-    color: var(--violet);
-}
-
 .sidebar ul li a:hover {
     background: var(--white);
     color: var(--violet);
 }
 
-.sidebar ul li a:hover i {
+.sidebar ul li.selected a {
+    background: var(--white);
     color: var(--violet);
 }
 
+.hidden {
+    display: none;
+}
+
 .content {
-    flex: 1;
+    margin-left: 250px; /* Ajuste para deixar espaço para o sidebar */
     padding: 20px;
 }
 
@@ -96,16 +90,23 @@ body {
 .statistics {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap; /* Permite que os cards quebrem para baixo em telas menores */
 }
 
 .card {
     color: var(--white);
     padding: 20px;
     border-radius: 10px;
-    width: 30%;
+    width: calc(30% - 20px); /* Define a largura com margens entre os cards */
+    margin-bottom: 20px; /* Espaçamento entre os cards */
     text-align: left;
     display: flex;
     align-items: center;
+    flex: 1 0 calc(30% - 20px); /* Distribui os cards igualmente, mas permitindo quebra de linha */
+    max-width: 300px; /* Largura máxima do card */
+    max-height: 200px; /* Altura máxima do card */
+    overflow: hidden; /* Para cortar o conteúdo que excede a altura */
+    transition: transform 0.3s ease; /* Efeito de transição suave */
 }
 
 .card:nth-child(1) {
@@ -136,7 +137,56 @@ body {
 }
 
 .card p {
-    margin: 5px 0 0 0;
+    margin: 3px 0 0 0;
     font-size: 1rem;
     color: var(--white);
+}
+
+.logs {
+    margin-top: 40px;
+}
+
+.logs h2 {
+    margin-bottom: 20px;
+    color: var(--black);
+}
+
+#logTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#logTable th, #logTable td {
+    border: 1px solid var(--black_t);
+    padding: 8px;
+    text-align: left;
+}
+
+#logTable th {
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+#logTable tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#logTable tbody tr:hover {
+    background-color: #ddd;
+}
+
+hr {
+    width: 100%; 
+    border: none;
+    height: 1px;
+    background-color: var(--black_t);
+    margin: 20px 0; /* Espaçamento acima e abaixo da linha */
+}
+
+@media screen and (max-width: 768px) {
+    .card {
+        width: 100%; /* Muda a largura para ocupar 100% do container pai em telas menores */
+        max-width: none; /* Remove a largura máxima em telas menores para ocupar o espaço disponível */
+    }
 }

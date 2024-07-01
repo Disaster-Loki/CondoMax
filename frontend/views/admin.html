@@ -3,50 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
+    <title>Admin - Dashboard</title>
     <link rel="stylesheet" href="../css/style-admin.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> <!-- Link para Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <div class="sidebar">
         <h2>Admin</h2>
         <ul>
-            <li class="selected"><a href="#"><i class='bx bx-home'></i>Dashboard</a></li>
-            <li><a href="#"><i class='bx bx-user'></i>Condóminos</a></li>
-            <li><a href="#"><i class='bx bx-group'></i>Funcionários</a></li>
-            <li><a href="#"><i class='bx bx-buildings'></i>Empresas de Serviços</a></li>
-            <li><a href="#"><i class='bx bx-file'></i>Balancetes</a></li>
-            <li><a href="#"><i class='bx bx-bar-chart-alt-2'></i>Relatórios</a></li>
-            <li><a href="#"><i class='bx bx-money'></i>Orçamento</a></li>
+            <li class="sidebar-item" data-content="dashboard"><a href="#"><i class='bx bx-home'></i>Dashboard</a></li>
+            <li class="sidebar-item" data-content="condominio"><a href="#"><i class='bx bx-user'></i>Condóminos</a></li>
+            <li class="sidebar-item" data-content="funcionario"><a href="#"><i class='bx bx-group'></i>Funcionários</a></li>
+            <li class="sidebar-item" data-content="empresa"><a href="#"><i class='bx bx-buildings'></i>Empresas de Serviços</a></li>
+            <li class="sidebar-item" data-content="balancetes"><a href="#"><i class='bx bx-file'></i>Balancetes</a></li>
+            <li class="sidebar-item" data-content="relatorios"><a href="#"><i class='bx bx-bar-chart-alt-2'></i>Relatórios</a></li>
+            <li class="sidebar-item" data-content="orcamento"><a href="#"><i class='bx bx-money'></i>Orçamento</a></li>
+            <li><a href="#"><i class='bx bx-log-out'></i>Sair</a></li>
         </ul>
     </div>
 
     <div class="content">
-        <h2>Dashboard</h2>
-        <hr style="height: 5px; background: black; margin: 5px 5px 20px 5px">
-        <div class="statistics">
-            <div class="card">
-                <i class='bx bxs-user'></i>
-                <div class="info">
-                    <p class="number">50</p>
-                    <p>Total de Funcionários</p>
+        <!-- Dashboard -->
+        <div id="dashboard" class="content-section">
+            <h2>Dashboard</h2>
+            <hr>
+            <div class="statistics">
+                <div class="card">
+                    <i class='bx bxs-user'></i>
+                    <div class="info">
+                        <p class="number" id="totalFuncionarios">Carregando...</p>
+                        <p>Total de Funcionários</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <i class='bx bxs-buildings'></i>
+                    <div class="info">
+                        <p class="number" id="totalEmpresas">Carregando...</p>
+                        <p>Empresas de Serviços</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <i class='bx bxs-dollar-circle'></i>
+                    <div class="info">
+                        <p class="number" id="totalOrcamento">Carregando...</p>
+                        <p>Total do Orçamento</p>
+                    </div>
                 </div>
             </div>
-            <div class="card">
-                <i class='bx bxs-buildings'></i>
-                <div class="info">
-                    <p class="number">12</p>
-                    <p>Empresas de Serviços</p>
-                </div>
-            </div>
-            <div class="card">
-                <i class='bx bxs-dollar-circle'></i>
-                <div class="info">
-                    <p class="number">$50000</p>
-                    <p>Total do Orçamento</p>
-                </div>
+
+            <!-- Tabela de logs -->
+            <div class="logs">
+                <h2>Últimos Logs</h2>
+                <table id="logTable">
+                    <thead>
+                        <tr>
+                            <th>Data e Hora</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody id="logTableBody">
+                        <!-- Aqui serão adicionados os logs dinamicamente via JavaScript -->
+                    </tbody>
+                </table>
             </div>
         </div>
+
+        <!-- Funcionários -->
+<div id="funcionario" class="content-section hidden">
+    <h2>Funcionários</h2>
+    <!-- Botão de adicionar funcionário -->
+    <button id="addFuncionarioBtn">Adicionar Funcionário</button>
+
+    <!-- Tabela de funcionários -->
+    <table id="tabelaFuncionarios">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Cargo</th>
+                <th>Email</th>
+                <th>Salário</th>
+                <th>Status</th>
+                <th>Ações</th> <!-- Nova coluna para ações -->
+            </tr>
+        </thead>
+        <tbody id="listaFuncionarios">
+            <!-- Aqui serão adicionados os funcionários dinamicamente via JavaScript -->
+        </tbody>
+    </table>
+</div>
+
+<!-- Condomínios -->
+<div id="condominio" class="content-section hidden">
+    <h2>Condóminos</h2>
+    <!-- Botão de adicionar condomínio -->
+    <button id="addCondominioBtn">Adicionar Condomínio</button>
+
+    <!-- Tabela de condomínios -->
+    <table id="tabelaCondominios">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Endereço</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+                <th>Ações</th> <!-- Nova coluna para ações -->
+            </tr>
+        </thead>
+        <tbody id="listaCondominios">
+            <!-- Aqui serão adicionados os condomínios dinamicamente via JavaScript -->
+        </tbody>
+    </table>
+</div>
+
+
+        <!-- Empresas de Serviços -->
+        <div id="empresa" class="content-section hidden">
+            <h2>Empresas de Serviços</h2>
+            <!-- Botão de adicionar -->
+            <button id="addEmpresaBtn">Adicionar Empresa</button>
+
+            <!-- Lista de empresas -->
+            <div id="listaEmpresas">
+                <!-- Aqui serão adicionadas as empresas dinamicamente via JavaScript -->
+            </div>
+        </div>
+
+        <!-- Balancetes -->
+        <div id="balancetes" class="content-section hidden">
+            <h2>Balancetes</h2>
+            <!-- Conteúdo de balancetes -->
+            <p>Todos os meses (ou trimestre) devem ser emitidos os balancetes a enviar aos condóminos para que estes efectuem o pagamento das respectivas quotas.</p>
+        </div>
+
+        <!-- Relatórios -->
+        <div id="relatorios" class="content-section hidden">
+            <h2>Relatórios</h2>
+            <!-- Conteúdo de relatórios -->
+            <p>No final do ano deve ser gerado o relatório de contas de cada edifício gerido e o orçamento para o ano seguinte.</p>
+        </div>
+
+        <!-- Orçamento -->
+        <div id="orcamento" class="content-section hidden">
+            <h2>Orçamento</h2>
+            <!-- Conteúdo de orçamento -->
+            <p>Orçamento para o ano seguinte.</p>
+        </div>
     </div>
+
+    <script src="../js/admin.js"></script> <!-- Arquivo JavaScript para manipulação da página -->
 </body>
 </html>
