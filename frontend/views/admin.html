@@ -12,7 +12,7 @@
         <h2>Admin</h2>
         <ul>
             <li class="sidebar-item" data-content="dashboard"><a href="#"><i class='bx bx-home'></i>Dashboard</a></li>
-            <li class="sidebar-item" data-content="condominio"><a href="#"><i class='bx bx-user'></i>Condóminos</a></li>
+            <li class="sidebar-item selected" data-content="condominio"><a href="#"><i class='bx bx-user'></i>Condóminos</a></li>
             <li class="sidebar-item" data-content="funcionario"><a href="#"><i class='bx bx-group'></i>Funcionários</a></li>
             <li class="sidebar-item" data-content="empresa"><a href="#"><i class='bx bx-buildings'></i>Empresas de Serviços</a></li>
             <li class="sidebar-item" data-content="balancetes"><a href="#"><i class='bx bx-file'></i>Balancetes</a></li>
@@ -69,52 +69,51 @@
         </div>
 
         <!-- Funcionários -->
-<div id="funcionario" class="content-section hidden">
-    <h2>Funcionários</h2>
-    <!-- Botão de adicionar funcionário -->
-    <button id="addFuncionarioBtn">Adicionar Funcionário</button>
+        <div id="funcionario" class="content-section hidden">
+            <h2>Funcionários</h2>
+            <!-- Botão de adicionar funcionário -->
+            <button id="addFuncionarioBtn">Adicionar Funcionário</button>
 
-    <!-- Tabela de funcionários -->
-    <table id="tabelaFuncionarios">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Cargo</th>
-                <th>Email</th>
-                <th>Salário</th>
-                <th>Status</th>
-                <th>Ações</th> <!-- Nova coluna para ações -->
-            </tr>
-        </thead>
-        <tbody id="listaFuncionarios">
-            <!-- Aqui serão adicionados os funcionários dinamicamente via JavaScript -->
-        </tbody>
-    </table>
-</div>
+            <!-- Tabela de funcionários -->
+            <table id="tabelaFuncionarios">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Cargo</th>
+                        <th>Email</th>
+                        <th>Salário</th>
+                        <th>Status</th>
+                        <th>Ações</th> <!-- Nova coluna para ações -->
+                    </tr>
+                </thead>
+                <tbody id="listaFuncionarios">
+                    <!-- Aqui serão adicionados os funcionários dinamicamente via JavaScript -->
+                </tbody>
+            </table>
+        </div>
 
-<!-- Condomínios -->
-<div id="condominio" class="content-section hidden">
-    <h2>Condóminos</h2>
-    <!-- Botão de adicionar condomínio -->
-    <button id="addCondominioBtn">Adicionar Condomínio</button>
+        <!-- Condomínios -->
+        <div id="condominio" class="content-section">
+            <h2>Condóminos</h2>
+            <!-- Botão de adicionar condomínio -->
+            <button id="addCondominioBtn">Adicionar Condomínio</button>
 
-    <!-- Tabela de condomínios -->
-    <table id="tabelaCondominios">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Endereço</th>
-                <th>Cidade</th>
-                <th>Estado</th>
-                <th>Ações</th> <!-- Nova coluna para ações -->
-            </tr>
-        </thead>
-        <tbody id="listaCondominios">
-            <!-- Aqui serão adicionados os condomínios dinamicamente via JavaScript -->
-        </tbody>
-    </table>
-</div>
-
+            <!-- Tabela de condomínios -->
+            <table id="tabelaCondominios">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Endereço</th>
+                        <th>Gerente Responsável</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="listaCondominios">
+                    <!-- Aqui serão adicionados os condomínios dinamicamente via JavaScript -->
+                </tbody>
+            </table>
+        </div>
 
         <!-- Empresas de Serviços -->
         <div id="empresa" class="content-section hidden">
@@ -147,6 +146,23 @@
             <h2>Orçamento</h2>
             <!-- Conteúdo de orçamento -->
             <p>Orçamento para o ano seguinte.</p>
+        </div>
+    </div>
+
+    <!-- Modal para adicionar/editar condomínio -->
+    <div id="modalCondominio" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Adicionar/Editar Condomínio</h2>
+            <form id="formCondominio">
+                <label for="nome">Nome:</label><br>
+                <input type="text" id="nome" name="nome" required><br><br>
+                <label for="endereco">Endereço:</label><br>
+                <input type="text" id="endereco" name="endereco" required><br><br>
+                <label for="gerente_responsavel">Gerente Responsável:</label><br>
+                <input type="text" id="gerente_responsavel" name="gerente_responsavel" required><br><br>
+                <button type="submit" id="submitCondominio">Salvar</button>
+            </form>
         </div>
     </div>
 
