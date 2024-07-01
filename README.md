@@ -1,8 +1,8 @@
-# CondoMax
+# CondoMax 🏢
 
 CondoMax is a comprehensive condominium management system designed to facilitate the administration of condominium units, staff, service companies, balance sheets, reports, and budgets. This project follows an MVC architecture and is built with PHP, MySQL, and JavaScript.
 
-## Features
+## Features ✨
 
 - **Resident Management**: Manage condominium residents, including their personal information and unit details.
 - **Staff Management**: Manage the condominium staff, including their roles, contact information, and salaries.
@@ -10,14 +10,16 @@ CondoMax is a comprehensive condominium management system designed to facilitate
 - **Financial Management**: Handle balance sheets, financial reports, and budgets.
 - **Interactive Dashboard**: A dynamic dashboard that displays key statistics and logs.
 
-## Technologies Used
+## Technologies Used 🛠️
 
-- **Frontend**: HTML, CSS, JavaScript
-- **Backend**: PHP
-- **Database**: MySQL
-- **JavaScript Libraries**: Boxicons for icons
+![HTML](https://img.shields.io/badge/HTML-5-orange)
+![CSS](https://img.shields.io/badge/CSS-3-blue)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
+![PHP](https://img.shields.io/badge/PHP-7.4-purple)
+![MySQL](https://img.shields.io/badge/MySQL-5.7-blue)
+![Boxicons](https://img.shields.io/badge/Boxicons-icons-green)
 
-## Getting Started
+## Getting Started 🚀
 
 ### Prerequisites
 
@@ -49,7 +51,7 @@ CondoMax is a comprehensive condominium management system designed to facilitate
 - **Financial Reports:** Generate and view balance sheets, financial reports, and budgets.
 - **Interactive Features:** Use the sidebar to navigate between different sections of the dashboard.
 
-## Contributing
+## Contributing 🤝
 
 1. **Fork the repository:**
     ```bash
@@ -73,11 +75,11 @@ CondoMax is a comprehensive condominium management system designed to facilitate
 
 5. **Create a Pull Request:** Submit your changes for review.
 
-## License
+## License 📄
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## Contact
+## Contact 📬
 
 - **Author**: [Disaster-Loki](https://github.com/Disaster-Loki)
 - **Project Link**: [CondoMax](https://github.com/Disaster-Loki/CondoMax)
