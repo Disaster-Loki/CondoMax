@@ -60,7 +60,7 @@ CREATE TABLE `condominio` (
   `endereco` varchar(255) NOT NULL,
   `gerente_responsavel` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,9 +70,12 @@ CREATE TABLE `condominio` (
 LOCK TABLES `condominio` WRITE;
 /*!40000 ALTER TABLE `condominio` DISABLE KEYS */;
 INSERT INTO `condominio` VALUES
-(1,'Condominio A','Rua Principal, 123','João da Silva'),
+(1,'Condominio AB','Rua Principal, 123','João da Silva'),
 (2,'Condominio B','Avenida Secundaria, 456','Maria Santos'),
-(3,'Condomínio Bela Vista','Rua das Flores, 123','Pedro Oliveira');
+(5,'sebastiao','Gamek a direita','sebastiao'),
+(6,'Seba Carvalho','Gamek a direita','sebastiao'),
+(15,'Mundo cruel22','gamek','Sebastiao Jose'),
+(17,'Mundo cruel2','Gamek a direita','João da Silva');
 /*!40000 ALTER TABLE `condominio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -152,7 +155,7 @@ CREATE TABLE `funcionario` (
   `morada` varchar(255) NOT NULL,
   `senha` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -209,4 +212,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-07-01 10:41:34
+-- Dump completed on 2024-07-02 14:42:44
