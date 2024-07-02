@@ -23,7 +23,6 @@
     </div>
 
     <div class="content">
-        <!-- Dashboard -->
         <div id="dashboard" class="content-section hidden">
             <h2>Dashboard</h2>
             <hr>
@@ -49,9 +48,14 @@
                         <p>Total do Orçamento</p>
                     </div>
                 </div>
+                <div class="card">
+                    <i class='bx bxs-building-house'></i>
+                    <div class="info">
+                        <p class="number" id="totalCondominios">Carregando...</p>
+                        <p>Total de Condomínios</p>
+                    </div>
+                </div>
             </div>
-
-            <!-- Tabela de logs -->
             <div class="logs">
                 <h2>Últimos Logs</h2>
                 <table id="logTable">
@@ -61,20 +65,14 @@
                             <th>Ação</th>
                         </tr>
                     </thead>
-                    <tbody id="logTableBody">
-                        <!-- Aqui serão adicionados os logs dinamicamente via JavaScript -->
-                    </tbody>
+                    <tbody id="logTableBody"></tbody>
                 </table>
             </div>
         </div>
 
-        <!-- Funcionários -->
         <div id="funcionario" class="content-section hidden">
             <h2>Funcionários</h2>
-            <!-- Botão de adicionar funcionário -->
             <button id="addFuncionarioBtn">Adicionar Funcionário</button>
-
-            <!-- Tabela de funcionários -->
             <table id="tabelaFuncionarios">
                 <thead>
                     <tr>
@@ -83,22 +81,16 @@
                         <th>Email</th>
                         <th>Salário</th>
                         <th>Status</th>
-                        <th>Ações</th> <!-- Nova coluna para ações -->
+                        <th>Ações</th>
                     </tr>
                 </thead>
-                <tbody id="listaFuncionarios">
-                    <!-- Aqui serão adicionados os funcionários dinamicamente via JavaScript -->
-                </tbody>
+                <tbody id="listaFuncionarios"></tbody>
             </table>
         </div>
 
-        <!-- Condomínios -->
         <div id="condominio" class="content-section">
             <h2>Condóminos</h2>
-            <!-- Botão de adicionar condomínio -->
-            <button id="addCondominioBtn">Adicionar Condomínio</button>
-
-            <!-- Tabela de condomínios -->
+            <button id="addCondominioBtn" style="float:right; background-color:green;">Adicionar Condomínio</button>
             <table id="tabelaCondominios">
                 <thead>
                     <tr>
@@ -109,52 +101,38 @@
                         <th>Ações</th>
                     </tr>
                 </thead>
-                <tbody id="listaCondominios">
-                    <!-- Aqui serão adicionados os condomínios dinamicamente via JavaScript -->
-                </tbody>
+                <tbody id="listaCondominios"></tbody>
             </table>
         </div>
 
-        <!-- Empresas de Serviços -->
         <div id="empresa" class="content-section hidden">
             <h2>Empresas de Serviços</h2>
-            <!-- Botão de adicionar -->
             <button id="addEmpresaBtn">Adicionar Empresa</button>
-
-            <!-- Lista de empresas -->
-            <div id="listaEmpresas">
-                <!-- Aqui serão adicionadas as empresas dinamicamente via JavaScript -->
-            </div>
+            <div id="listaEmpresas"></div>
         </div>
 
-        <!-- Balancetes -->
         <div id="balancetes" class="content-section hidden">
             <h2>Balancetes</h2>
-            <!-- Conteúdo de balancetes -->
             <p>Todos os meses (ou trimestre) devem ser emitidos os balancetes a enviar aos condóminos para que estes efectuem o pagamento das respectivas quotas.</p>
         </div>
 
-        <!-- Relatórios -->
         <div id="relatorios" class="content-section hidden">
             <h2>Relatórios</h2>
-            <!-- Conteúdo de relatórios -->
             <p>No final do ano deve ser gerado o relatório de contas de cada edifício gerido e o orçamento para o ano seguinte.</p>
         </div>
 
-        <!-- Orçamento -->
         <div id="orcamento" class="content-section hidden">
             <h2>Orçamento</h2>
-            <!-- Conteúdo de orçamento -->
             <p>Orçamento para o ano seguinte.</p>
         </div>
     </div>
 
-    <!-- Modal para adicionar/editar condomínio -->
     <div id="modalCondominio" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Adicionar/Editar Condomínio</h2>
+            <h2 id="modalTitle">Adicionar Condomínio</h2>
             <form id="formCondominio">
+                <input type="hidden" id="condominioId">
                 <label for="nome">Nome:</label><br>
                 <input type="text" id="nome" name="nome" required><br><br>
                 <label for="endereco">Endereço:</label><br>
@@ -166,6 +144,6 @@
         </div>
     </div>
 
-    <script src="../js/admin.js"></script> <!-- Arquivo JavaScript para manipulação da página -->
+    <script src="../js/admin.js"></script>
 </body>
 </html>
