@@ -11,13 +11,13 @@
     <div class="sidebar">
         <h2>Admin</h2>
         <ul>
-            <li class="sidebar-item" data-content="dashboard"><a href="#"><i class='bx bx-home'></i>Dashboard</a></li>
-            <li class="sidebar-item selected" data-content="condominio"><a href="#"><i class='bx bx-user'></i>Condóminos</a></li>
-            <li class="sidebar-item" data-content="funcionario"><a href="#"><i class='bx bx-group'></i>Funcionários</a></li>
-            <li class="sidebar-item" data-content="empresa"><a href="#"><i class='bx bx-buildings'></i>Empresas de Serviços</a></li>
-            <li class="sidebar-item" data-content="balancetes"><a href="#"><i class='bx bx-file'></i>Balancetes</a></li>
-            <li class="sidebar-item" data-content="relatorios"><a href="#"><i class='bx bx-bar-chart-alt-2'></i>Relatórios</a></li>
-            <li class="sidebar-item" data-content="orcamento"><a href="#"><i class='bx bx-money'></i>Orçamento</a></li>
+            <li class="sidebar-item" data-content="dashboard"><a href="#"><i class='bx bx-home'></i>  Dashboard</a></li>
+            <li class="sidebar-item selected" data-content="condominio"><a href="#"><i class='bx bx-user'></i>  Condóminos</a></li>
+            <li class="sidebar-item" data-content="funcionario"><a href="#"><i class='bx bx-group'></i>  Funcionários</a></li>
+            <li class="sidebar-item" data-content="empresa"><a href="#"><i class='bx bx-buildings'></i>  Empresas de Serviços</a></li>
+            <li class="sidebar-item" data-content="balancetes"><a href="#"><i class='bx bx-file'></i>  Balancetes</a></li>
+            <li class="sidebar-item" data-content="relatorios"><a href="#"><i class='bx bx-bar-chart-alt-2'></i> Relatórios</a></li>
+            <li class="sidebar-item" data-content="orcamento"><a href="#"><i class='bx bx-money'></i>  Orçamento</a></li>
             <li><a href="#"><i class='bx bx-log-out'></i>Sair</a></li>
         </ul>
     </div>
@@ -90,7 +90,10 @@
 
         <div id="condominio" class="content-section">
             <h2>Condóminos</h2>
-            <button id="addCondominioBtn" style="float:right; background-color:green;">Adicionar Condomínio</button>
+            <div class="table-actions">
+                <h3>Lista de Condomínios</h3>
+                <button id="addCondominioBtn">Adicionar Condomínio</button>
+            </div>
             <table id="tabelaCondominios">
                 <thead>
                     <tr>
@@ -129,8 +132,8 @@
 
     <div id="modalCondominio" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
             <h2 id="modalTitle">Adicionar Condomínio</h2>
+            <span class="close">&times;</span>
             <form id="formCondominio">
                 <input type="hidden" id="condominioId">
                 <label for="nome">Nome:</label><br>

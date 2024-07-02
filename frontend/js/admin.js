@@ -114,6 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
     formCondominio.onsubmit = function(event) {
         event.preventDefault();
         const condominioId = document.getElementById('condominioId').value;
+        console.log(condominioId);
         const method = condominioId ? 'PUT' : 'POST';
         const url = condominioId ? `http://localhost/CondoMax/condominio/${condominioId}` : 'http://localhost/CondoMax/condominio';
 
@@ -132,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!response.ok) {
                 throw new Error('Erro ao salvar o condomínio');
             }
-            return response.json();
+            //return response.json();
         })
         .then(data => {
             modal.style.display = 'none';
