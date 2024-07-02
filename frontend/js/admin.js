@@ -151,4 +151,33 @@ document.addEventListener('DOMContentLoaded', function() {
             item.classList.add('selected');
         });
     });
+
+    const logs = [
+        { dataHora: "2024-07-02 10:15:00", acao: "Entrou no sistema" },
+        { dataHora: "2024-07-01 15:30:00", acao: "Saiu do sistema" },
+        // Adicionar mais logs conforme necessário
+    ];
+
+    // Função para preencher a tabela de logs
+    function renderLogs(logs) {
+        const logTableBody = document.getElementById("logTableBody");
+
+        // Limpa o conteúdo atual da tabela
+        logTableBody.innerHTML = "";
+
+        // Adiciona cada log à tabela
+        logs.forEach(log => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${log.dataHora}</td>
+                <td>${log.acao}</td>
+            `;
+            logTableBody.appendChild(row);
+        });
+    }
+
+    // Chama a função para renderizar os logs
+    renderLogs(logs);
 });
+
+

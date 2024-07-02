@@ -80,14 +80,13 @@
                         <th>Cargo</th>
                         <th>Email</th>
                         <th>Salário</th>
-                        <th>Status</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody id="listaFuncionarios"></tbody>
             </table>
         </div>
-
+        
         <div id="condominio" class="content-section">
             <h2>Condóminos</h2>
             <div class="table-actions">
@@ -116,24 +115,59 @@
 
         <div id="balancetes" class="content-section hidden">
             <h2>Balancetes</h2>
-            <p>Todos os meses (ou trimestre) devem ser emitidos os balancetes a enviar aos condóminos para que estes efectuem o pagamento das respectivas quotas.</p>
+            <table id="tabelaBalancetes">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Condomínio</th>
+                        <th>Mês</th>
+                        <th>Ano</th>
+                        <th>Total Despesas</th>
+                        <th>Total Pagamentos</th>
+                    </tr>
+                </thead>
+                <tbody id="listaBalancetes"></tbody>
+            </table>
         </div>
 
         <div id="relatorios" class="content-section hidden">
             <h2>Relatórios</h2>
-            <p>No final do ano deve ser gerado o relatório de contas de cada edifício gerido e o orçamento para o ano seguinte.</p>
+            <table id="tabelaRelatorios">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Descrição</th>
+                        <th>Data</th>
+                        <th>ID Condomínio</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="listaRelatorios"></tbody>
+            </table>
         </div>
 
         <div id="orcamento" class="content-section hidden">
             <h2>Orçamento</h2>
-            <p>Orçamento para o ano seguinte.</p>
+            <table id="tabelaOrcamento">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Valor</th>
+                        <th>Data</th>
+                        <th>ID Condomínio</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="listaOrcamento"></tbody>
+            </table>
         </div>
+        
     </div>
 
     <div id="modalCondominio" class="modal">
         <div class="modal-content">
-            <h2 id="modalTitle">Adicionar Condomínio</h2>
             <span class="close">&times;</span>
+            <h2 id="modalTitle">Adicionar Condomínio</h2>
             <form id="formCondominio">
                 <input type="hidden" id="condominioId">
                 <label for="nome">Nome:</label><br>
@@ -147,6 +181,28 @@
         </div>
     </div>
 
+    <div id="modalFuncionario" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Adicionar Funcionário</h2>
+            <form id="formFuncionario">
+                <input type="hidden" id="funcionarioId">
+                <label for="nome">Nome:</label><br>
+                <input type="text" id="nome" name="nome" required><br><br>
+                <label for="cargo">Cargo:</label><br>
+                <input type="text" id="cargo" name="cargo" required><br><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="salario">Salário:</label><br>
+                <input type="number" id="salario" name="salario" required><br><br>
+                <button type="submit" id="submitFuncionario">Salvar</button>
+            </form>
+        </div>
+    </div>
+    
+
     <script src="../js/admin.js"></script>
+    <script src="../js/funcionario.js"></script>
+    <script src="../js/rest.js"></script>
 </body>
 </html>
